@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+      "outDir": "./built",
+      "allowJs": false,
+      "target": "ES6",
+      "strict": true,
+      "module": "ES6",
+      "moduleResolution": "Node",
+      "resolveJsonModule": true,
+      "removeComments": true,
+      "forceConsistentCasingInFileNames": true
+    },
+    "include": ["./src/**/*"]
+}

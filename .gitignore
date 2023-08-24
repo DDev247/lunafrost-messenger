@@ -1,0 +1,13 @@
+
+# Ignore messenger login credentials
+login.json
+
+# Ignore npm files
+package-lock.json
+node_modules/
+
+# Ignore build .js files
+built/
+
+# Other
+token.txt

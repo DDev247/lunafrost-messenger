@@ -1,0 +1,14 @@
+{
+    "helpText": "📃 Lista dostępnych komend (7 w 2 kategoriach):\n\n🛠 Ogólne: help, about\n🎉 Zabawa: hello, joke, dice, coinflip, 8ball",
+    "aboutText": "ℹ O mnie:\n    🤖 Bot ogólnego przeznaczenia, inspirowany AmbientBot.\n    👱‍♂️ Stworzony przez DDev",
+    
+    "helloReply1": "👋 Hej ${user}, jestem LunaFrost. Aby zobaczyć moją listę komend wpisz `!help`.",
+    "helloReply2": "👋 Hej ${user}, jestem LunaFrost.",
+    "helloReply3": "👋 Witaj ${user}, jestem LunaFrost. Aby zobaczyć moją listę komend wpisz `!help`.",
+    "helloReply4": "👋 Witaj ${user}, jestem LunaFrost.",
+
+    "diceRoll": "🎲 Wylądowałeś ${result} na ${sides}-stronnej kostce!",
+    "coinFlip": "💰 Moneta wylądowała na ${result}!",
+    "coinFlipHeads": "orzeł",
+    "coinFlipTails": "reszka"
+}
