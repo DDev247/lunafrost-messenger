@@ -6,7 +6,6 @@ This is a custom bot for Meta Messenger, made using Puppeteer with Typescript an
 
 # How to use
 ## This is a experimental bot. Your account may or may not be suspended because of this. Use with caution
-<br>
 With that out of the way, here's how to get it running:
 
 ### Clone the git repo
