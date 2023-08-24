@@ -1,5 +1,4 @@
 import puppeteer, { Browser, ElementHandle, Page } from 'puppeteer';
-import { parse, Node as NodeParsed, HTMLElement as HTMLElementParsed } from 'node-html-parser';
 
 import * as fun from "./fun";
 import { formatLocale, formatString, getLocaleString } from './translations';
@@ -121,7 +120,7 @@ const getChildren = async (element: ElementHandle<Element>) => {
     })
 }
 
-const startMessages = async (browser: Browser, page: Page) => {
+const startMessages = async (page: Page) => {
     messagesRunning = true;
     // await sendMessage("LunaFrost is now online!", page);
 
@@ -217,8 +216,18 @@ const startMessages = async (browser: Browser, page: Page) => {
 };
 
 (async () => {
+    console.log("Launching LunaFrost 1.0.0");
+
     // Launch the browser and open a new blank page
-    const browser: Browser = await puppeteer.launch({ debuggingPort: 9229, executablePath: "/bin/google-chrome-stable" });
+    let params = {};
+    if(process.env["DEV"]) {
+        console.log("    In DEVMODE");
+        params = { debuggingPort: 9229, executablePath: "/bin/google-chrome-stable" }
+    }
+    else
+        console.log("    In normal mode");
+
+    const browser: Browser = await puppeteer.launch(params);
     const page: Page = await browser.newPage();
 
     // Navigate the page to the login page
@@ -254,7 +263,7 @@ const startMessages = async (browser: Browser, page: Page) => {
     await new Promise((resolve) => {setTimeout(resolve, 2500)});
     
     // Start the messages loop
-    startMessages(browser, page);
+    startMessages(page);
 
     while (messagesRunning) {
         await new Promise((resolve) => {setTimeout(resolve, 100)});
