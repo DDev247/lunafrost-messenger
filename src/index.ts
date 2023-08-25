@@ -34,12 +34,12 @@ const sendMessage = async (message: string, page: Page) => {
 
 const processNewMessage = async (message: Message, page: Page) => {
     // Skip bot messages and messages that don't start with our prefix
-    if(message.user.startsWith("You") || !message.content.startsWith("!"))
+    if(message.user.startsWith("You") || !message.content.startsWith(getConfig().prefix))
         return;
 
     console.log(`Command '${message.content}' recieved from '${message.user}'`)
 
-    const content = message.content.substring("!".length);
+    const content = message.content.substring(getConfig().prefix.length).toLowerCase();
     const contentBits = content.split(" ");
 
     switch (contentBits[0]) {
@@ -51,7 +51,7 @@ const processNewMessage = async (message: Message, page: Page) => {
             break;
     
         case "hello":
-            await sendMessage(formatLocale("helloReply" + Math.round(Math.random() * 4), {user: message.user}), page);
+            await sendMessage(formatLocale("helloReply" + Math.round(Math.random() * 4), { user: message.user, prefix: getConfig().prefix }), page);
             break;
         case "joke":
             await fun.joke(message, page);
@@ -171,6 +171,7 @@ const startMessages = async (page: Page) => {
     // Parse the existing messages
     let lastMessages = parseMessages(children);
     console.log("    Base messages parsed...");
+    console.log("    Using prefix '" + getConfig().prefix + "'");
     console.log("Ready!");
 
     // At this point the bot is ready to receive new messages.
